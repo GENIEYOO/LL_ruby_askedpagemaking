@@ -1,0 +1,18 @@
+<h1>질문 받습니다.</h1>
+<p>질문자이름과 내용을 입력하세요</p>
+<form action="/asked/show">
+
+공개선택 :
+<select name="name">
+  <option value="XXX">익명</option>
+  <option value="<%= session[:user_email] %>">공개</option>
+<!--=을 처줘야 출력이 된다. -->  
+</select><br>
+이름 :  <input type="text" name="name"><br>
+질문 : <input type="text" name="question" width = "500"><br>
+  <input type="submit" value="Submit">
+</form>
+<% @question.each do |q| %>
+<p>이름 : <%= q.name %> </p>
+<p>질문 : <%= q.question %></p>
+<% end %>
